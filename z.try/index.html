@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* All your existing CSS remains the same */
         :root {
             --trace-color: #00629B; /* Blue for light mode */
             --trace-glow: 0 0 15px 3px var(--trace-color);
@@ -102,28 +103,6 @@
             height: 100%;
             z-index: -1;
         }
-        /* Orange top-left rounded corner */
-.photo-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 80px;
-    height: 80px;
-    background: orange;
-    border-bottom-right-radius: 80px;
-}
-/* Black bottom-right rounded corner */
-.photo-container::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 80px;
-    height: 80px;
-    background: black;
-    border-top-left-radius: 80px;
-}
         
         /* Theme Toggle in Header */
         .theme-toggle-container {
@@ -1186,15 +1165,16 @@
         
         body.orange-3d-theme .blog-card {
             background-color: rgba(255, 107, 53, 0.1);
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-3d);
+            border: (--border-color);
+            box-shadow: var(--shadow-);
+d);
         }
         
         .blog-card:hover {
             transform: translateY(-10px);
         }
         
-        body.orange-3d-theme .blog-card:hover {
+        body.orange-33d-theme .blog-card:hover {
             transform: translateY(-15px) rotateX(5deg);
             box-shadow: 0 20px 40px rgba(255, 107, 53, 0.5);
         }
@@ -1206,7 +1186,7 @@
         
         .blog-img img {
             width: 100%;
-            height: 100%;
+            height:100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
@@ -1216,18 +1196,18 @@
         }
         
         .blog-content {
-            padding: 25px;
+            padding:25px;
         }
         
         .blog-date {
-            display: inline-block;
-            padding: 5px 15px;
+            display:inline-block;
+            padding:5px 15px;
             background-color: var(--primary-color);
-            color: white;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 15px;
+            color:white;
+            border-radius:20px;
+            font-size:0.9rem;
+            font-weight:500;
+            margin-bottom:15px;
         }
         
         body.orange-3d-theme .blog-date {
@@ -1235,10 +1215,10 @@
         }
         
         .blog-content h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
+            font-size:1.3rem;
+            font-weight:600;
             color: var(--primary-color);
-            margin-bottom: 15px;
+            margin-bottom:15px;
         }
         
         body.orange-3d-theme .blog-content h3 {
@@ -1247,7 +1227,7 @@
         
         .blog-content p {
             color: var(--text-color);
-            margin-bottom: 20px;
+            margin-bottom:20px;
         }
         
         /* Resources Section */
@@ -1487,6 +1467,28 @@
         textarea.form-control {
             min-height: 120px;
             resize: vertical;
+        }
+        
+        /* Form message styling */
+        .form-message {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .form-message.success {
+            background-color: rgba(40, 167, 69, 0.2);
+            color: #28a745;
+            border: 1px solid rgba(40, 167, 69, 0.3);
+        }
+        
+        .form-message.error {
+            background-color: rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+            border: 1px solid rgba(220, 53, 69, 0.3);
         }
         
         /* Footer */
@@ -2586,33 +2588,27 @@
                             <p>ieeecsttu@gmail.com</p>
                         </div>
                     </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                       
-                    </div>
                 </div>
                 
                 <div class="contact-form">
                     <h3>Send Us a Message</h3>
+                    <div id="form-message" class="form-message"></div>
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" required>
+                            <input type="text" class="form-control" id="name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" required>
+                            <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" class="form-control" id="subject" required>
+                            <input type="text" class="form-control" id="subject" name="subject" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
@@ -2652,7 +2648,6 @@
                     </ul>
                 </div>
                 
-                
                 <div class="footer-contact">
                     <h4>Contact Us</h4>
                     <div class="contact-info-item">
@@ -2663,7 +2658,6 @@
                         <i class="fas fa-envelope"></i>
                         <p>ieeecsttu@gmail.com</p>
                     </div>
-                   
                 </div>
             </div>
             
@@ -2688,7 +2682,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <img src="images/test.jpg" alt="Event Image" class="modal-image" id="modalImage">
+                <img src="images/impact.jpeg" alt="Event Image" class="modal-image" id="modalImage">
                 <div class="modal-meta">
                     <div class="modal-meta-item">
                         <i class="fas fa-calendar-alt"></i>
@@ -2723,10 +2717,17 @@
         </div>
     </div>
     
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Initialize EmailJS with your public key
+        (function() {
+            emailjs.init("r97yCQEk1unlPdrsQ"); // Replace with your EmailJS public key
+        })();
       
-      // Canvas-based 3D particle background
+        // Canvas-based 3D particle background
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
         
@@ -2900,13 +2901,40 @@
             });
         });
         
-        // Form submission
+        // Form submission with EmailJS
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // In a real application, you would send the form data to a server here
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
+            // Show loading message
+            const formMessage = document.getElementById('form-message');
+            formMessage.style.display = 'block';
+            formMessage.className = 'form-message';
+            formMessage.textContent = 'Sending your message...';
+            
+            // Send the form using EmailJS
+            emailjs.sendForm('service_vthue67', 'template_54owl4j', this)
+                .then(function(response) {
+                    // Show success message
+                    formMessage.className = 'form-message success';
+                    formMessage.textContent = 'Your message has been sent successfully!';
+                    
+                    // Reset the form
+                    document.getElementById('contactForm').reset();
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                }, function(error) {
+                    // Show error message
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = 'Failed to send your message. Please try again later.';
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                });
         });
         
         // Add this to your JavaScript
@@ -2946,7 +2974,7 @@
                 date: "April 26, 2025",
                 time: "09:00 AM - 5:00 PM",
                 location: "Olive Tree Hotel, Amman, Jordan",
-                image: "impact.jpeg",
+                image: "images/impact.jpeg",
                 description: "MPACT 2025 was a groundbreaking congress in the Middle East focusing on VR, AR, XR, and Metaverse technologies. Organized by IEEE CS TTU with support from industry partners, the event brought together over 150 participants, including students, experts, and academics, to explore the future of immersive technologies through keynote speeches, technical sessions, and hands-on workshops.",
                 details: [
                     "Opening ceremony with industry and academic leaders",
@@ -2963,7 +2991,7 @@
                 date: "Mar 20, 2025",
                 time: " 05:00 PM - 09:00 PM",
                 location: "AlRaya Mall, Amman, Jordan",
-                image: "ramadan.png",
+                image: "images/ramadan.png",
                 description: "The IEEE Computer Society – Tafila Technical University Student Branch, in collaboration with KAIRA Organization, organized a heartfelt charity event during Ramadan, bringing joy and memorable experiences to over 50 orphaned children through a special Iftar and recreational activities.",
                 details: [
                     "Collaboration between IEEE CS TTU and KAIRA Organization",
@@ -2978,7 +3006,7 @@
                 date: "Dec 23, 2024",
                 time: "10:00 AM - 01:30 PM ",
                 location: "Tafila Technical Universty , Building: college of engineering ,Room Number: potash theater",
-                image: "techmodel.png",
+                image: "images/techmodel.png",
                 description: "The IEEE Computer Society at Tafila Technical University hosted the highly anticipated CS TECH BATTLE, a large-scale competition bringing together students from various computing disciplines to showcase their skills, knowledge, and teamwork. Featuring inspiring speeches, exciting game-based challenges, and a thrilling finale, the event celebrated innovation, collaboration, and academic excellence.",
                 details: [
                     "Organized by IEEE Computer Society – Tafila Technical University",
@@ -2996,7 +3024,7 @@
                 date: "Nov 07, 2024",
                 time: "10:00 AM  - 01:00 PM",
                 location: "SHAI for AI, Amman, Jordan",
-                image: "shai.png",
+                image: "images/shai.png",
                 description: "providing members with the opportunity to explore a leading AI company in the Middle East. The visit introduced students to real-world applications of AI and data analytics, offering insights into the industry's work environment and practices.",
                 details: [
                     "Introduction to SHAI for AI's cutting-edge AI projects",
@@ -3014,7 +3042,7 @@
                 date: "Sep 30, 2024",
                 time: "10:00 AM - 01:00 PM",
                 location: "Robotna, Amman, Jordan",
-                image: "robotna.jpeg",
+                image: "images/robotna.jpeg",
                 description: "A hands-on PCB design workshop by IEEE CS TTU and Robotna, equipping engineering students with essential skills for electronics projects and future careers.",
                 details: [
                     "Collaboration between IEEE CS TTU and Robotna",
